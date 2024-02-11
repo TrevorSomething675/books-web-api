@@ -1,6 +1,5 @@
 ﻿using BooksApi.Application.Repositories;
 using Microsoft.EntityFrameworkCore;
-using BooksApi.Infrastructure.Data;
 using BooksApi.Core.Entities;
 using AutoMapper;
 
@@ -14,7 +13,12 @@ namespace BooksApi.Infrastructure.BookFeatures.Repositories
         private readonly IDbContextFactory<MainContext> _dbContextFactory = dbContextFactory;
         public async Task CreateBookAsync(Book book)
         {
-            
+            using(var context = _dbContextFactory.CreateDbContext())
+            {
+                var entityToRemove = context.Books.FirstOrDefault(b => b.Id == book.Id);
+                context.Books.Remove(entityToRemove);
+                await context.SaveChangesAsync();
+            }
         }
         public async Task RemoveBookAsync(int id)
         {

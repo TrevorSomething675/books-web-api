@@ -1,6 +1,6 @@
-﻿using BooksApi.Core.Entities;
+﻿using BooksApi.Core.WebModels.Book;
+using BooksApi.Core.Entities;
 using AutoMapper;
-using BooksApi.Core.WebModels.Book;
 
 namespace BooksApi.Application.Mappings
 {

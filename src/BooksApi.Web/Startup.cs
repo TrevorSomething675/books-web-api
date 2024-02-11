@@ -1,7 +1,7 @@
 ﻿using BooksApi.Infrastructure.BookFeatures.Repositories;
 using BooksApi.Application.Repositories;
-using BooksApi.Infrastructure.Data;
 using BooksApi.Web.Configurations;
+using BooksApi.Infrastructure;
 using System.Reflection;
 
 namespace BooksApi.Web
@@ -12,9 +12,9 @@ namespace BooksApi.Web
         {
             services.AddAppAoptionsConfiguration();
             services.AddAppAutoMapper();
+            services.AddDbContextFactory<MainContext>();
 
             services.AddControllers();
-            services.AddDbContextFactory<MainContext>();
             services.AddMediatR(config => config.RegisterServicesFromAssemblies(Assembly.GetAssembly(typeof(Infrastructure.AssemblyMarker))));
             services.AddScoped<IBookRepository, BookRepository>();
         }
