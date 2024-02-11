@@ -1,9 +1,9 @@
-﻿using BooksApi.Core.WebModels;
+﻿using BooksApi.Core.Entities;
 
 namespace BooksApi.Application.Repositories
 {
     public interface IBookRepository 
     {
-        public Task CreateBookAsync(BookRequest bookDto);
+        public Task CreateBookAsync(Book book);
     }
 }

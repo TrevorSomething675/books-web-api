@@ -1,6 +1,6 @@
-﻿using BooksApi.Core.DtoModels;
+﻿using BooksApi.Core.WebModels.Author;
 
-namespace BooksApi.Core.WebModels
+namespace BooksApi.Core.WebModels.Book
 {
     public class BookRequest
     {
@@ -8,6 +8,6 @@ namespace BooksApi.Core.WebModels
         public string Name { get; set; }
         public int PageCount { get; set; }
         public int AuthorId { get; set; }
-        public AuthorDto Author { get; set; }
+        public AuthorRequest Author { get; set; }
     }
 }

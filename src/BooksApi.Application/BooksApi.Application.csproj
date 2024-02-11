@@ -11,7 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BooksApi.DataBase\BooksApi.DataBase.csproj" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BooksApi.Core\BooksApi.Core.csproj" />
   </ItemGroup>
 
 </Project>

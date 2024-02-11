@@ -1,9 +1,9 @@
-﻿using BooksApi.Infrastructure.Book.Responses;
-using BooksApi.Core.WebModels;
+﻿using BooksApi.Infrastructure.BookFeatures.Responses;
+using BooksApi.Core.WebModels.Book;
 using Ardalis.Result;
 using MediatR;
 
-namespace BooksApi.Infrastructure.Book.Commands
+namespace BooksApi.Infrastructure.BookFeatures.Commands
 {
     public class CreateBookCommand : IRequest<Result<CreatedBookResponse>>
     {

@@ -1,6 +1,6 @@
-﻿using BooksApi.Infrastructure.Book.Commands;
-using MediatR;
+﻿using BooksApi.Infrastructure.BookFeatures.Commands;
 using Microsoft.AspNetCore.Mvc;
+using MediatR;
 
 namespace BooksApi.Web.Controllers
 {

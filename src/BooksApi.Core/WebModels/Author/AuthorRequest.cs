@@ -1,4 +1,6 @@
-﻿namespace BooksApi.Core.WebModels
+﻿using BooksApi.Core.WebModels.Book;
+
+namespace BooksApi.Core.WebModels.Author
 {
     public class AuthorRequest
     {

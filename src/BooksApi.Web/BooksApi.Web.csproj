@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BooksApi.Application\BooksApi.Application.csproj" />
     <ProjectReference Include="..\BooksApi.Infrastructure\BooksApi.Infrastructure.csproj" />
   </ItemGroup>
 

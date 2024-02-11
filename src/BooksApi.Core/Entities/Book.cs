@@ -1,5 +1,5 @@
-﻿namespace BooksApi.DataBase.Models
-{
+﻿namespace BooksApi.Core.Entities
+{ 
     public class Book
     {
         public int Id { get; set; }

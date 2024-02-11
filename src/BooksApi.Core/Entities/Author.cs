@@ -1,4 +1,4 @@
-﻿namespace BooksApi.DataBase.Models
+﻿namespace BooksApi.Core.Entities
 {
     public class Author
     {

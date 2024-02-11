@@ -9,11 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi.Web", "src\BooksAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi.Application", "src\BooksApi.Application\BooksApi.Application.csproj", "{48E24531-448D-4035-AF14-AF2BBE1AEB6D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi.DataBase", "src\BooksApi.DataBase\BooksApi.DataBase.csproj", "{543C35FB-428A-41D3-B137-B14EFDC96FAF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi.Core", "src\BooksApi.Core\BooksApi.Core.csproj", "{FDDB5A0B-E086-4BFD-B3B1-924E3028DC1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksApi.Infrastructure", "src\BooksApi.Infrastructure\BooksApi.Infrastructure.csproj", "{B537DFDB-6225-45BA-9CCD-01EAA0888F98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi.Infrastructure", "src\BooksApi.Infrastructure\BooksApi.Infrastructure.csproj", "{B537DFDB-6225-45BA-9CCD-01EAA0888F98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{48E24531-448D-4035-AF14-AF2BBE1AEB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48E24531-448D-4035-AF14-AF2BBE1AEB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48E24531-448D-4035-AF14-AF2BBE1AEB6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{543C35FB-428A-41D3-B137-B14EFDC96FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{543C35FB-428A-41D3-B137-B14EFDC96FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{543C35FB-428A-41D3-B137-B14EFDC96FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{543C35FB-428A-41D3-B137-B14EFDC96FAF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FDDB5A0B-E086-4BFD-B3B1-924E3028DC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FDDB5A0B-E086-4BFD-B3B1-924E3028DC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDDB5A0B-E086-4BFD-B3B1-924E3028DC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,7 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{87DF0A77-8A3E-4569-AF8F-7982B0BAA2A5} = {46FD9449-FB49-44A9-ACA4-F1D2A70CAB04}
 		{48E24531-448D-4035-AF14-AF2BBE1AEB6D} = {46FD9449-FB49-44A9-ACA4-F1D2A70CAB04}
-		{543C35FB-428A-41D3-B137-B14EFDC96FAF} = {46FD9449-FB49-44A9-ACA4-F1D2A70CAB04}
 		{FDDB5A0B-E086-4BFD-B3B1-924E3028DC1B} = {46FD9449-FB49-44A9-ACA4-F1D2A70CAB04}
 		{B537DFDB-6225-45BA-9CCD-01EAA0888F98} = {46FD9449-FB49-44A9-ACA4-F1D2A70CAB04}
 	EndGlobalSection
