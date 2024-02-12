@@ -17,11 +17,11 @@ namespace BooksApi.Infrastructure.BookFeatures.Handlers
         private readonly IBookRepository _bookRepository = bookRepository;
         public async Task<Result<CreatedBookResponse>> Handle(CreateBookCommand request, CancellationToken cancellationToken)
         {
-            var bookModel = _mapper.Map<Book>(request?.Book);
-            await _bookRepository.CreateBookAsync(bookModel);
+            var book = _mapper.Map<Book>(request?.Book);
+            var addedBookId = await _bookRepository.CreateBookAsync(book);
 
             return Result<CreatedBookResponse>.Success(
-                new CreatedBookResponse(request?.Book?.Id), "Successfully operation");
+                new CreatedBookResponse(addedBookId), "Successfully operation");
         }
     }
 }

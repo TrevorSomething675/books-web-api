@@ -15,8 +15,7 @@ namespace BooksApi.Infrastructure.BookFeatures.Repositories
         {
             using(var context = _dbContextFactory.CreateDbContext())
             {
-                var entityToRemove = context.Books.FirstOrDefault(b => b.Id == book.Id);
-                context.Books.Remove(entityToRemove);
+                context.Books.Add(book);
                 await context.SaveChangesAsync();
             }
         }

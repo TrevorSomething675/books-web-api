@@ -1,24 +1,25 @@
-﻿using BooksApi.Infrastructure.BookFeatures.Commands;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
+using BooksApi.Infrastructure.AuthorFeatures.Commands;
 
 namespace BooksApi.Web.Controllers
 {
-    public class BookController(
+    public class AuthorController(
         IMediator mediator
         ) : Controller
     {
         private readonly IMediator _mediator = mediator;
         [HttpGet]
-        public async Task<IResult> GetBooks()
+        public async Task<IResult> GetAuthors()
         {
-            return Results.Ok("book");
+            return Results.Ok("author");
         }
         [HttpPost]
-        public async Task<IResult> CreateBook(CreateBookCommand command)
+        public async Task<IResult> CreateAuthor(CreateAuthorCommand command)
         {
             var result = await _mediator.Send(command);
             return Results.Ok(result);
         }
+        
     }
 }

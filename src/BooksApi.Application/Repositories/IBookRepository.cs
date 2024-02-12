@@ -4,6 +4,6 @@ namespace BooksApi.Application.Repositories
 {
     public interface IBookRepository 
     {
-        public Task CreateBookAsync(Book book);
+        public Task<int?> CreateBookAsync(Book book);
     }
 }
