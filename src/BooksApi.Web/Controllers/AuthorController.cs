@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BooksApi.Infrastructure.AuthorFeatures.Commands;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using BooksApi.Infrastructure.AuthorFeatures.Commands;
 
 namespace BooksApi.Web.Controllers
 {
@@ -9,6 +10,12 @@ namespace BooksApi.Web.Controllers
         ) : Controller
     {
         private readonly IMediator _mediator = mediator;
+
+        [HttpGet]
+        public async Task<IResult> GetAuthorById([Required] int id)
+        {
+            return Results.Ok();
+        }
         [HttpGet]
         public async Task<IResult> GetAuthors()
         {
@@ -20,6 +27,15 @@ namespace BooksApi.Web.Controllers
             var result = await _mediator.Send(command);
             return Results.Ok(result);
         }
-        
+        [HttpPut]
+        public async Task<IResult> UpdateAuthor()
+        {
+            return Results.Ok();
+        }
+        [HttpDelete]
+        public async Task<IResult> RemoveAuthor([Required] int id)
+        {
+            return Results.Ok();
+        }
     }
 }

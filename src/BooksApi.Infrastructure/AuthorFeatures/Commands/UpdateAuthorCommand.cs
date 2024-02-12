@@ -5,7 +5,7 @@ using MediatR;
 
 namespace BooksApi.Infrastructure.AuthorFeatures.Commands
 {
-    public class CreateAuthorCommand : IRequest<Result<CreatedAuthorResponse>>
+    public class UpdateAuthorCommand : IRequest<Result<UpdatedAuthorReponse>>
     {
         public AuthorRequest? Author { get; set; }
     }

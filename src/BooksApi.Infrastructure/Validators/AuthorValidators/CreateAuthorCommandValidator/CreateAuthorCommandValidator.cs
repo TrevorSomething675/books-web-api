@@ -7,7 +7,7 @@ namespace BooksApi.Infrastructure.Validators.AuthorValidators.CreateAuthorComman
     {
         public CreateAuthorCommandValidator()
         {
-            RuleFor(command => command.AuthorRequest)
+            RuleFor(command => command.Author)
                 .NotNull();
         }
     }

@@ -38,11 +38,11 @@ namespace BooksApi.Web
 
                     var books = new List<Book>
                     {
-                        new Book{ Name = "Book-1", PageCount = 10,
+                        new Book{ Name = "Book-1", PagesCount = 10,
                             Author = authors.FirstOrDefault(),
                             AuthorId = authors.FirstOrDefault().Id
                         },
-                        new Book{ Name = "Book-2", PageCount = 15,
+                        new Book{ Name = "Book-2", PagesCount = 15,
                             Author = authors.FirstOrDefault(),
                             AuthorId = authors.FirstOrDefault().Id
                         },

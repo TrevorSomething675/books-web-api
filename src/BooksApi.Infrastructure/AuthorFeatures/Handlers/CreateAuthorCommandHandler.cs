@@ -24,7 +24,7 @@ namespace BooksApi.Infrastructure.AuthorFeatures.Handlers
             if (!validationResult.IsValid)
                 return Result<CreatedAuthorResponse>.Invalid(validationResult.AsErrors());
 
-            var author = _mapper.Map<Author>(request.AuthorRequest);
+            var author = _mapper.Map<Author>(request.Author);
             var addedAuthorId = await _authorRepository.CreateAuthor(author);
 
             return Result<CreatedAuthorResponse>.Success(
