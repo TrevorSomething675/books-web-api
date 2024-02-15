@@ -29,7 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrasctucture\BooksApi.DataBase\BooksApi.DataBase.csproj" />
-    <ProjectReference Include="..\BooksApi.Domain\BooksApi.Domain.csproj" />
+    <ProjectReference Include="..\BooksApi.Core\BooksApi.Core.csproj" />
   </ItemGroup>
 
 </Project>

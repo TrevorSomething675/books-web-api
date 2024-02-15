@@ -1,6 +1,6 @@
 ﻿using BooksApi.Domain.Entities;
 
-namespace BooksApi.Infrastructure.Commands
+namespace BooksApi.Infrastructure.Commands.BookFeature
 {
     public class CreateBookCommand
     {
