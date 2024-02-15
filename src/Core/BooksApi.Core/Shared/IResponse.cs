@@ -1,4 +1,4 @@
 ﻿namespace BooksApi.Core.Shared
 {
-    public interface IResponse { }
+    public interface IResponse;
 }
