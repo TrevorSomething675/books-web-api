@@ -59,8 +59,8 @@ namespace BooksApi.Infrastructure.Repositories
                 var author = context.Authors
                     .FirstOrDefault(a => a.Id == authorToUpdate.Id);
 
-                AuthorUpdate.AuthorUpdateFields(authorToUpdate, out author);
-                var result = context.Update(author);
+                author = AuthorUpdate.AuthorUpdateFields(authorToUpdate, author);
+                var result = context.Authors.Update(author);
                 context.SaveChanges();
                 return result.Entity.Id;
             }

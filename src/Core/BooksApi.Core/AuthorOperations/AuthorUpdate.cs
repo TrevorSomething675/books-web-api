@@ -4,9 +4,9 @@ namespace BooksApi.Core.AuthorOperations
 {
     public static class AuthorUpdate
     {
-        public static Author AuthorUpdateFields(Author authorToUpdate, out Author author)
+        public static Author AuthorUpdateFields(Author authorToUpdate, Author author)
         {
-            author = authorToUpdate;
+            author.Name = authorToUpdate.Name;
             return author;
         }
     }

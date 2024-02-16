@@ -1,8 +1,9 @@
 ﻿using BooksApi.Infrastructure.Commands.AuthorFeatures.CreateAuthor;
+using BooksApi.Infrastructure.Commands.AuthorFeatures.UpdateAuthor;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using BooksApi.Infrastructure.Commands.AuthorFeatures.UpdateAuthor;
+using BooksApi.Domain.Entities;
 
 namespace BooksApi.Web.Controllers
 {
@@ -31,6 +32,11 @@ namespace BooksApi.Web.Controllers
         [HttpPut]
         public async Task<IResult> UpdateAuthor([Required] UpdateAuthorCommand command)
         {
+            command.Author = new Author
+            {
+                Id = 1,
+                Name = "NewName-2"
+            };
             var result = await _mediator.Send(command);
             return Results.Ok(result);
         }
