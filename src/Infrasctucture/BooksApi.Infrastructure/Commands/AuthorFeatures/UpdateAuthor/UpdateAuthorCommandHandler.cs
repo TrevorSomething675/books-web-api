@@ -14,15 +14,17 @@ namespace BooksApi.Infrastructure.Commands.AuthorFeatures.UpdateAuthor
         : IRequestHandler<UpdateAuthorCommand, Result<AuthorResponse>>
     {
         private readonly IAuthorRepository _authorRepository = authorRepository;
+        private readonly IValidator<UpdateAuthorCommand> _commandValidator = commandValidator;
+
         public async Task<Result<AuthorResponse>> Handle(UpdateAuthorCommand command, CancellationToken cancellationToken)
         {
-            var validatorResult = await commandValidator.ValidateAsync(command, cancellationToken);
-            if (!validatorResult.IsValid)
-                return Result<AuthorResponse>.Invalid(validatorResult.AsErrors());
+            var validationResult = await _commandValidator.ValidateAsync(command, cancellationToken);
+            if (!validationResult.IsValid)
+                return Result<AuthorResponse>.Invalid(validationResult.AsErrors());
 
             var updatedAuthorId = await _authorRepository.UpdateAuthorAsync(command.Author);
             return Result<AuthorResponse>.Success(
-                new AuthorResponse(updatedAuthorId), "Success operation.");
+                new AuthorResponse(updatedAuthorId), "Автор был успешно редактирован");
         }
     }
 }

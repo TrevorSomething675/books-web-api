@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using BooksApi.Infrastructure.Commands.BookFeature;
+using BooksApi.Infrastructure.Commands.BookFeature.CreateBook;
 
 namespace BooksApi.Web.Controllers
 {

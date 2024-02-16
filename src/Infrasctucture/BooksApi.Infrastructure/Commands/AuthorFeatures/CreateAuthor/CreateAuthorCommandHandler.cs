@@ -24,7 +24,7 @@ namespace BooksApi.Infrastructure.Commands.AuthorFeatures.CreateAuthor
 
             var createdAuthorId = await _authorRepository.CreateAuthorAsync(command.Author);
             return Result<AuthorResponse>.Success(
-                new AuthorResponse(createdAuthorId), "Success operation.");
+                new AuthorResponse(createdAuthorId), "Автор был успешно добавлен");
         }
     }
 }

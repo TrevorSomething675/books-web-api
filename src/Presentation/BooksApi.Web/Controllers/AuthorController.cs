@@ -1,9 +1,9 @@
 ﻿using BooksApi.Infrastructure.Commands.AuthorFeatures.CreateAuthor;
 using BooksApi.Infrastructure.Commands.AuthorFeatures.UpdateAuthor;
+using BooksApi.Infrastructure.Commands.AuthorFeatures.RemoveAuthor;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using BooksApi.Domain.Entities;
 
 namespace BooksApi.Web.Controllers
 {
@@ -24,7 +24,7 @@ namespace BooksApi.Web.Controllers
             return Results.Ok("author");
         }
         [HttpPost]
-        public async Task<IResult> CreateAuthor([Required] CreateAuthorCommand command)
+        public async Task<IResult> CreateAuthor([Required][FromBody] CreateAuthorCommand command)
         {
             var result = await _mediator.Send(command);
             return Results.Ok(result);
@@ -32,18 +32,14 @@ namespace BooksApi.Web.Controllers
         [HttpPut]
         public async Task<IResult> UpdateAuthor([Required] UpdateAuthorCommand command)
         {
-            command.Author = new Author
-            {
-                Id = 1,
-                Name = "NewName-2"
-            };
             var result = await _mediator.Send(command);
             return Results.Ok(result);
         }
         [HttpDelete]
-        public async Task<IResult> RemoveAuthor([Required] int id)
+        public async Task<IResult> RemoveAuthor([Required] RemoveAuthorCommand command)
         {
-            return Results.Ok();
+            var result = await _mediator.Send(command);
+            return Results.Ok(result);
         }
     }
 }
