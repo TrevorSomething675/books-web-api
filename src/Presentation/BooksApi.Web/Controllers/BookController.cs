@@ -1,7 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
-using MediatR;
+﻿using BooksApi.Infrastructure.Queries.AuthorFeatures.GetBookByIdQuery;
 using BooksApi.Infrastructure.Commands.BookFeature.CreateBook;
+using System.ComponentModel.DataAnnotations;
+using Ardalis.Result.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
+using BooksApi.Web.Extensions;
+using MediatR;
 
 namespace BooksApi.Web.Controllers
 {
@@ -12,9 +15,9 @@ namespace BooksApi.Web.Controllers
         private readonly IMediator _mediator = mediator;
 
         [HttpGet]
-        public async Task<IResult> GetBookById([Required] int id)
+        public async Task<IActionResult> GetBookById([Required] int id)
         {
-            return Results.Ok();
+            return (await _mediator.Send(new GetBookByIdQuery(id))).ToActionResult();
         }
         [HttpGet]
         public async Task<IResult> GetBooks()
@@ -22,10 +25,9 @@ namespace BooksApi.Web.Controllers
             return Results.Ok("book");
         }
         [HttpPost]
-        public async Task<IResult> CreateBook([Required] CreateBookCommand command)
+        public async Task<IActionResult> CreateBook([Required] CreateBookCommand command)
         {
-            var result = await _mediator.Send(command);
-            return Results.Ok(result);
+            return (await _mediator.Send(command)).ToActionResult();
         }
         [HttpPut]
         public async Task<IResult> UpdateBook()

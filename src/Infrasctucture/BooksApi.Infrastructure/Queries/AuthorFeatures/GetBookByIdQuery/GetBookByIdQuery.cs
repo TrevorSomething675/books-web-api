@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BooksApi.Infrastructure.Queries.AuthorFeatures.GetBookByIdQuery
 {
-    public class GetBookByIdQuery(int id) : IRequest<Result<BookResponse>>
+    public class GetBookByIdQuery(int id) : IRequest<Result<BookQueryModel>>
     {
         public int Id { get; } = id;
     }

@@ -1,10 +1,11 @@
 ﻿using BooksApi.Infrastructure.Repositories;
 using BooksApi.Application.Repositories;
 using BookApi.Infrastructure.Data;
+using BooksApi.Web.Configurations;
+using BooksApi.Core.OptionModels;
+using BooksApi.Domain.Entities;
 using System.Reflection;
 using FluentValidation;
-using BooksApi.Domain.Entities;
-using BooksApi.Core.OptionModels;
 
 namespace BooksApi.Web
 {
@@ -15,13 +16,14 @@ namespace BooksApi.Web
             var configuration = services.BuildServiceProvider().GetRequiredService<IConfiguration>();
             services.Configure<DataBaseOptions>(configuration.GetSection(DataBaseOptions.SectionName));
 
+            services.AddAppAutoMapper();
+
             services.AddControllers();
             services.AddDbContextFactory<MainContext>();
             services.AddMediatR(config => config.RegisterServicesFromAssemblies(Assembly.GetAssembly(typeof(Infrastructure.AssemblyMarker))));
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddValidatorsFromAssembly(Assembly.GetAssembly(typeof(Infrastructure.AssemblyMarker)));
-
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

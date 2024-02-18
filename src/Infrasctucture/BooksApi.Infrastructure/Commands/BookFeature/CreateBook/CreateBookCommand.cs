@@ -5,7 +5,7 @@ using MediatR;
 
 namespace BooksApi.Infrastructure.Commands.BookFeature.CreateBook
 {
-    public class CreateBookCommand : IRequest<Result<BookResponse>>
+    public class CreateBookCommand : IRequest<Result<BookCommandResponse>>
     {
         public string AuthorName { get; set; }
         public Book Book { get; set; }

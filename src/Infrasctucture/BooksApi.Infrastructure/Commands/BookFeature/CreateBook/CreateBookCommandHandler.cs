@@ -1,8 +1,8 @@
-﻿using Ardalis.Result;
-using Ardalis.Result.FluentValidation;
+﻿using Ardalis.Result.FluentValidation;
 using BooksApi.Application.Repositories;
 using BooksApi.Core.Shared;
 using FluentValidation;
+using Ardalis.Result;
 using MediatR;
 
 namespace BooksApi.Infrastructure.Commands.BookFeature.CreateBook
@@ -11,20 +11,20 @@ namespace BooksApi.Infrastructure.Commands.BookFeature.CreateBook
         IValidator<CreateBookCommand> commandValidator,
         IBookRepository bookRepository
         ) 
-        : IRequestHandler<CreateBookCommand, Result<BookResponse>>
+        : IRequestHandler<CreateBookCommand, Result<BookCommandResponse>>
     {
         private readonly IBookRepository _bookRepository = bookRepository;
         private readonly IValidator<CreateBookCommand> _commandValidator = commandValidator;
 
-        public async Task<Result<BookResponse>> Handle(CreateBookCommand request, CancellationToken cancellationToken)
+        public async Task<Result<BookCommandResponse>> Handle(CreateBookCommand request, CancellationToken cancellationToken)
         {
             var validationResult = await _commandValidator.ValidateAsync(request);
             if (!validationResult.IsValid)
-                return Result<BookResponse>.Invalid(validationResult.AsErrors());
+                return Result<BookCommandResponse>.Invalid(validationResult.AsErrors());
 
             var createdBookId = await _bookRepository.CreateBookAsync(request.Book);
-            return Result<BookResponse>.Success(
-                new BookResponse(createdBookId), "Книга была успешно добавлена");
+            return Result<BookCommandResponse>.Success(
+                new BookCommandResponse(createdBookId), "Книга была успешно добавлена");
         }
     }
 }

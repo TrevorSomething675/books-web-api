@@ -6,6 +6,7 @@ namespace BooksApi.Infrastructure.Mapper.Profiles
     {
         public BookProfile()
         {
+
         }
     }
 }
