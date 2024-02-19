@@ -7,7 +7,7 @@ using MediatR;
 
 namespace BooksApi.Infrastructure.Commands.AuthorFeatures.RemoveAuthor
 {
-    public class RemoveAuthorCommandHandler(
+    public sealed class RemoveAuthorCommandHandler(
         IAuthorRepository authorRepository,
         IValidator<RemoveAuthorCommand> commandValidator)
         : IRequestHandler<RemoveAuthorCommand, Result<AuthorResponse>>

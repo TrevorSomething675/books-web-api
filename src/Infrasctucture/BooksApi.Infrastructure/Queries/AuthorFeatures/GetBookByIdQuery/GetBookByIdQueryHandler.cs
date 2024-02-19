@@ -8,7 +8,7 @@ using MediatR;
 
 namespace BooksApi.Infrastructure.Queries.AuthorFeatures.GetBookByIdQuery
 {
-    public class GetBookByIdQueryHandler(
+    public sealed class GetBookByIdQueryHandler(
         IMapper mapper,
         IBookRepository bookRepository,
         IValidator<GetBookByIdQuery> queryValidator

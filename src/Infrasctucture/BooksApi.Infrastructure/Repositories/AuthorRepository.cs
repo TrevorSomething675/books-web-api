@@ -1,8 +1,8 @@
 ﻿using BooksApi.Application.Repositories;
+using BooksApi.Core.AuthorOperations;
 using Microsoft.EntityFrameworkCore;
 using BookApi.Infrastructure.Data;
 using BooksApi.Domain.Entities;
-using BooksApi.Core.AuthorOperations;
 
 namespace BooksApi.Infrastructure.Repositories
 {
@@ -11,7 +11,6 @@ namespace BooksApi.Infrastructure.Repositories
         ) : IAuthorRepository
     {
         private readonly IDbContextFactory<MainContext> _dbContextFactory = dbContextFactory;
-
         public async Task<Author> GetAuthorByIdAsync(int id)
         {
             using (var context = _dbContextFactory.CreateDbContext())
@@ -49,6 +48,7 @@ namespace BooksApi.Infrastructure.Repositories
             {
                 var author = context.Authors.FirstOrDefault(a => a.Id == id);
                 var result = context.Authors.Remove(author);
+                await context.SaveChangesAsync();
                 return result.Entity.Id;
             }
         }
@@ -61,7 +61,7 @@ namespace BooksApi.Infrastructure.Repositories
 
                 author = AuthorUpdate.AuthorUpdateFields(authorToUpdate, author);
                 var result = context.Authors.Update(author);
-                context.SaveChanges();
+                await context.SaveChangesAsync();
                 return result.Entity.Id;
             }
         }

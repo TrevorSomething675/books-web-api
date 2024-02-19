@@ -9,14 +9,11 @@ namespace BooksApi.Infrastructure.Commands.AuthorFeatures.UpdateAuthor
         {
             RuleLevelCascadeMode = CascadeMode.Stop;
 
-            RuleFor(command => command.Author)
-                .NotNull().NotEmpty();
-
-            RuleFor(command => command.Author.Id)
+            RuleFor(command => command.Id)
                 .NotNull().NotEmpty()
                 .Must(CheckField.IsNumber).WithMessage("Id должен быть числом");
 
-            RuleFor(command => command.Author.Name)
+            RuleFor(command => command.Name)
                 .NotNull().NotEmpty();
         }
     }

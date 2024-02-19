@@ -30,13 +30,13 @@ namespace BooksApi.Web.Controllers
             return Results.Ok(result);
         }
         [HttpPut]
-        public async Task<IResult> UpdateAuthor([Required] UpdateAuthorCommand command)
+        public async Task<IResult> UpdateAuthor([Required][FromBody] UpdateAuthorCommand command)
         {
             var result = await _mediator.Send(command);
             return Results.Ok(result);
         }
         [HttpDelete]
-        public async Task<IResult> RemoveAuthor([Required] RemoveAuthorCommand command)
+        public async Task<IResult> RemoveAuthor([Required][FromBody] RemoveAuthorCommand command)
         {
             var result = await _mediator.Send(command);
             return Results.Ok(result);

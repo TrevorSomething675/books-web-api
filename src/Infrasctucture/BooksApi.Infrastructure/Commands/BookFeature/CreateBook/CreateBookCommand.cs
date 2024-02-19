@@ -1,5 +1,4 @@
-﻿using BooksApi.Domain.Entities;
-using BooksApi.Core.Shared;
+﻿using BooksApi.Core.Shared;
 using Ardalis.Result;
 using MediatR;
 
@@ -7,7 +6,8 @@ namespace BooksApi.Infrastructure.Commands.BookFeature.CreateBook
 {
     public class CreateBookCommand : IRequest<Result<BookCommandResponse>>
     {
-        public string AuthorName { get; set; }
-        public Book Book { get; set; }
+        public string Name { get; set; }
+        public int PagesCount { get; set; }
+        public int AuthorId { get; set; }
     }
 }

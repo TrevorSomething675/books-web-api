@@ -8,15 +8,9 @@ namespace BooksApi.Infrastructure.Commands.AuthorFeatures.CreateAuthor
         {
             RuleLevelCascadeMode = CascadeMode.Stop;
 
-            RuleFor(command => command.Author)
-                .NotNull().NotEmpty();
-
-            When(command => command.Author != null, () => 
-            {
-                RuleFor(command => command.Author.Name)
-                    .NotNull().NotEmpty()
-                    .Length(8, 24);
-            });
+            RuleFor(command => command.Name)
+                .NotNull().NotEmpty()
+                .Length(8, 24);
         }
     }
 }
