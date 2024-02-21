@@ -4,7 +4,7 @@ using MediatR;
 
 namespace BooksApi.Infrastructure.Commands.BookFeature.CreateBook
 {
-    public class CreateBookCommand : IRequest<Result<BookCommandResponse>>
+    public class CreateBookCommand : IRequest<Result<BookResponse>>
     {
         public string Name { get; set; }
         public int PagesCount { get; set; }

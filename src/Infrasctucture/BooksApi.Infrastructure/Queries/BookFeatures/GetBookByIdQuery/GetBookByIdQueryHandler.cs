@@ -6,7 +6,7 @@ using Ardalis.Result;
 using AutoMapper;
 using MediatR;
 
-namespace BooksApi.Infrastructure.Queries.AuthorFeatures.GetBookByIdQuery
+namespace BooksApi.Infrastructure.Queries.BookFeatures.GetBookByIdQuery
 {
     public sealed class GetBookByIdQueryHandler(
         IMapper mapper,

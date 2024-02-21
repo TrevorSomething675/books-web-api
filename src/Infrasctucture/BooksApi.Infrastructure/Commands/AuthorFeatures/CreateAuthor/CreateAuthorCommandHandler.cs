@@ -20,13 +20,13 @@ namespace BooksApi.Infrastructure.Commands.AuthorFeatures.CreateAuthor
         private readonly IAuthorRepository _authorRepository = authorRepository;
         private readonly IValidator<CreateAuthorCommand> _commandValidator = commandValidator;
 
-        public async Task<Result<AuthorResponse>> Handle(CreateAuthorCommand command, CancellationToken cancellationToken)
+        public async Task<Result<AuthorResponse>> Handle(CreateAuthorCommand request, CancellationToken cancellationToken)
         {
-            var validationResult = await _commandValidator.ValidateAsync(command, cancellationToken);
+            var validationResult = await _commandValidator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid)
                 return Result<AuthorResponse>.Invalid(validationResult.AsErrors());
 
-            var author = _mapper.Map<Author>(command);
+            var author = _mapper.Map<Author>(request);
             var createdAuthorId = await _authorRepository.CreateAuthorAsync(author);
             return Result<AuthorResponse>.Success(
                 new AuthorResponse(createdAuthorId), "Автор был успешно добавлен");

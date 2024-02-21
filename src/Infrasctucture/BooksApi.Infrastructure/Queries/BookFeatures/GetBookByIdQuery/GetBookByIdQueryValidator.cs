@@ -1,7 +1,7 @@
 ﻿using BooksApi.Core.Shared;
 using FluentValidation;
 
-namespace BooksApi.Infrastructure.Queries.AuthorFeatures.GetBookByIdQuery
+namespace BooksApi.Infrastructure.Queries.BookFeatures.GetBookByIdQuery
 {
     public class GetBookByIdQueryValidator : AbstractValidator<GetBookByIdQuery>
     {

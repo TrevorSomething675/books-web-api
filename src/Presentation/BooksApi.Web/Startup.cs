@@ -35,7 +35,14 @@ namespace BooksApi.Web
                     {
                         var author1 = new Author
                         {
-                            Name = "author-1"
+                            Name = "author-1",
+                            Books = new List<Book>
+                            {
+                                new Book{ 
+                                    Name = "book-1",
+                                    PagesCount = 5,
+                                }
+                            }
                         };
                         var author2 = new Author
                         {

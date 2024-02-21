@@ -1,5 +1,4 @@
 ﻿using BooksApi.Application.Repositories;
-using BooksApi.Core.AuthorOperations;
 using Microsoft.EntityFrameworkCore;
 using BookApi.Infrastructure.Data;
 using BooksApi.Domain.Entities;
@@ -28,16 +27,16 @@ namespace BooksApi.Infrastructure.Repositories
                 var authors = await context.Authors
                     .AsNoTracking()
                     .Take(pageNumber * totalAuthorsInPage)
-                    .Skip((pageNumber * totalAuthorsInPage) - 1)
+                    .Skip((pageNumber - 1) * totalAuthorsInPage)
                     .ToListAsync();
                 return authors;
             }
         }
-        public async Task<int> CreateAuthorAsync(Author author)
+        public async Task<int> CreateAuthorAsync(Author authorToCreate)
         {
             using(var context = _dbContextFactory.CreateDbContext())
             {
-                var result = context.Authors.Add(author);
+                var result = context.Authors.Add(authorToCreate);
                 await context.SaveChangesAsync();
                 return result.Entity.Id;
             }
@@ -57,12 +56,35 @@ namespace BooksApi.Infrastructure.Repositories
             using(var context = _dbContextFactory.CreateDbContext())
             {
                 var author = context.Authors
+                    .Include(a => a.Books)
                     .FirstOrDefault(a => a.Id == authorToUpdate.Id);
 
-                author = AuthorUpdate.AuthorUpdateFields(authorToUpdate, author);
-                var result = context.Authors.Update(author);
-                await context.SaveChangesAsync();
-                return result.Entity.Id;
+                var authorBooks = author.Books.ToList();
+                if(author.Books.Count < authorToUpdate.Books.Count)
+                {
+                    foreach (var bookToAdd in authorToUpdate.Books)
+                    {
+                        var selectedBook = author.Books.FirstOrDefault(b => b.Name == bookToAdd.Name);
+                        if (selectedBook == null)
+                            author.Books.Add(bookToAdd);
+                    }
+                } 
+                else if(author.Books.Count > authorToUpdate.Books.Count)
+                {
+                    foreach (var bookToRemove in authorBooks)
+                    {
+                        var selectedBook = authorToUpdate.Books.FirstOrDefault(b => b.Name == bookToRemove.Name);
+                        if(selectedBook != null)
+                            author.Books.Remove(bookToRemove);
+                    }
+                }
+                if (author != null)
+                {
+                    context.Entry(author).OriginalValues.SetValues(authorToUpdate);
+                    await context.SaveChangesAsync();
+                    return authorToUpdate.Id;
+                }
+                throw new Exception("Автор не найден");
             }
         }
     }

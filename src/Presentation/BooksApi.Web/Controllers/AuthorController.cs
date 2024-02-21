@@ -1,8 +1,12 @@
-﻿using BooksApi.Infrastructure.Commands.AuthorFeatures.CreateAuthor;
+﻿using BooksApi.Infrastructure.Queries.AuthorFeatures.GetAuthorByIdQuery;
+using BooksApi.Infrastructure.Queries.AuthorFeatures.GetAuthorsQuery;
+using BooksApi.Infrastructure.Commands.AuthorFeatures.CreateAuthor;
 using BooksApi.Infrastructure.Commands.AuthorFeatures.UpdateAuthor;
 using BooksApi.Infrastructure.Commands.AuthorFeatures.RemoveAuthor;
 using System.ComponentModel.DataAnnotations;
+using Ardalis.Result.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
+using BooksApi.Web.Extensions;
 using MediatR;
 
 namespace BooksApi.Web.Controllers
@@ -14,32 +18,29 @@ namespace BooksApi.Web.Controllers
         private readonly IMediator _mediator = mediator;
 
         [HttpGet]
-        public async Task<IResult> GetAuthorById([Required] int id)
+        public async Task<IActionResult> GetAuthorById([Required][FromHeader] int id)
         {
-            return Results.Ok();
+            return (await _mediator.Send(new GetAuthorByIdQuery(id))).ToActionResult();
         }
         [HttpGet]
-        public async Task<IResult> GetAuthors()
+        public async Task<IActionResult> GetAuthors([FromBody][FromHeader] int pageNumber = 1)
         {
-            return Results.Ok("author");
+            return (await _mediator.Send(new GetAuthorsQuery(pageNumber))).ToActionResult();
         }
         [HttpPost]
-        public async Task<IResult> CreateAuthor([Required][FromBody] CreateAuthorCommand command)
+        public async Task<IActionResult> CreateAuthor([Required][FromBody] CreateAuthorCommand command)
         {
-            var result = await _mediator.Send(command);
-            return Results.Ok(result);
+            return (await _mediator.Send(command)).ToActionResult();
         }
         [HttpPut]
-        public async Task<IResult> UpdateAuthor([Required][FromBody] UpdateAuthorCommand command)
+        public async Task<IActionResult> UpdateAuthor([Required][FromBody] UpdateAuthorCommand command)
         {
-            var result = await _mediator.Send(command);
-            return Results.Ok(result);
+            return (await _mediator.Send(command)).ToActionResult();
         }
         [HttpDelete]
-        public async Task<IResult> RemoveAuthor([Required][FromBody] RemoveAuthorCommand command)
+        public async Task<IActionResult> RemoveAuthor([Required][FromBody] RemoveAuthorCommand command)
         {
-            var result = await _mediator.Send(command);
-            return Results.Ok(result);
+            return (await _mediator.Send(command)).ToActionResult();
         }
     }
 }

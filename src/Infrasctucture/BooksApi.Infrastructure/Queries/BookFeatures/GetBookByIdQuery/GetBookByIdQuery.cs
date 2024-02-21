@@ -2,7 +2,7 @@
 using Ardalis.Result;
 using MediatR;
 
-namespace BooksApi.Infrastructure.Queries.AuthorFeatures.GetBookByIdQuery
+namespace BooksApi.Infrastructure.Queries.BookFeatures.GetBookByIdQuery
 {
     public class GetBookByIdQuery(int id) : IRequest<Result<BookQueryModel>>
     {

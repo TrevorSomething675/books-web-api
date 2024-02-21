@@ -13,7 +13,6 @@ namespace BooksApi.Infrastructure.Mapper.Profiles
             CreateMap<CreateAuthorCommand, Author>();
             CreateMap<UpdateAuthorCommand, Author>();
 
-
             CreateMap<Author, AuthorQueryModel>().ReverseMap();
         }
     }
