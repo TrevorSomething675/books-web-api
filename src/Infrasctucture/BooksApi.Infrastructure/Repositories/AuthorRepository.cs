@@ -59,27 +59,27 @@ namespace BooksApi.Infrastructure.Repositories
                     .Include(a => a.Books)
                     .FirstOrDefault(a => a.Id == authorToUpdate.Id);
 
-                var authorBooks = author.Books.ToList();
-                if(author.Books.Count < authorToUpdate.Books.Count)
-                {
-                    foreach (var bookToAdd in authorToUpdate.Books)
-                    {
-                        var selectedBook = author.Books.FirstOrDefault(b => b.Name == bookToAdd.Name);
-                        if (selectedBook == null)
-                            author.Books.Add(bookToAdd);
-                    }
-                } 
-                else if(author.Books.Count > authorToUpdate.Books.Count)
-                {
-                    foreach (var bookToRemove in authorBooks)
-                    {
-                        var selectedBook = authorToUpdate.Books.FirstOrDefault(b => b.Name == bookToRemove.Name);
-                        if(selectedBook != null)
-                            author.Books.Remove(bookToRemove);
-                    }
-                }
                 if (author != null)
                 {
+                    var authorBooks = author.Books.ToList();
+                    if(author.Books.Count < authorToUpdate.Books.Count)
+                    {
+                        foreach (var bookToAdd in authorToUpdate.Books)
+                        {
+                            var selectedBook = author.Books.FirstOrDefault(b => b.Name == bookToAdd.Name);
+                            if (selectedBook == null)
+                                author.Books.Add(bookToAdd);
+                        }
+                    } 
+                    else if(author.Books.Count > authorToUpdate.Books.Count)
+                    {
+                        foreach (var bookToRemove in authorBooks)
+                        {
+                            var selectedBook = authorToUpdate.Books.FirstOrDefault(b => b.Name == bookToRemove.Name);
+                            if(selectedBook != null)
+                                author.Books.Remove(bookToRemove);
+                        }
+                    }
                     context.Entry(author).OriginalValues.SetValues(authorToUpdate);
                     await context.SaveChangesAsync();
                     return authorToUpdate.Id;
