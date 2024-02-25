@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using BooksApi.Core.OptionModels;
 using BooksApi.Domain.Entities;
+using BooksApi.DataBase.Configuration;
 
 namespace BookApi.Infrastructure.Data
 {
@@ -26,7 +27,8 @@ namespace BookApi.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new BrandConfiguration());
+            modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
         }
     }
 }
