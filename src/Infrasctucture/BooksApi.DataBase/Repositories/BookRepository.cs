@@ -1,8 +1,8 @@
-﻿using BooksApi.DataBase.Repositories.Abstractions;
+﻿using BooksApi.Core.Abstractions.Repositories;
 using Microsoft.EntityFrameworkCore;
 using BookApi.Infrastructure.Data;
 using BooksApi.DataBase.Entities;
-using BooksApi.Application.Models;
+using BooksApi.Core.Models;
 using AutoMapper;
 
 namespace BooksApi.DataBase.Repositories

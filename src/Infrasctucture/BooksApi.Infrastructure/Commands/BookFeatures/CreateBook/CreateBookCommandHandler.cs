@@ -1,11 +1,11 @@
-﻿using BooksApi.DataBase.Repositories.Abstractions;
+﻿using BooksApi.Core.Abstractions.Repositories;
 using Ardalis.Result.FluentValidation;
+using BooksApi.Core.Models;
 using BooksApi.Core.Shared;
 using FluentValidation;
 using Ardalis.Result;
 using AutoMapper;
 using MediatR;
-using BooksApi.Application.Models;
 
 namespace BooksApi.Infrastructure.Commands.BookFeatures.CreateBook
 {

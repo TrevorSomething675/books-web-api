@@ -1,10 +1,10 @@
-﻿using Ardalis.Result.FluentValidation;
+﻿using BooksApi.Core.Abstractions.Repositories;
+using Ardalis.Result.FluentValidation;
 using BooksApi.Core.Shared;
 using FluentValidation;
 using Ardalis.Result;
 using AutoMapper;
 using MediatR;
-using BooksApi.DataBase.Repositories.Abstractions;
 
 namespace BooksApi.Infrastructure.Queries.BookFeatures.GetBookByIdQuery
 {

@@ -1,4 +1,4 @@
-﻿using BooksApi.DataBase.Repositories.Abstractions;
+﻿using BooksApi.Core.Abstractions.Repositories;
 using BooksApi.Core.Shared;
 using Ardalis.Result;
 using AutoMapper;

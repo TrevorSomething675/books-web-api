@@ -1,4 +1,4 @@
-﻿namespace BooksApi.Domain.Enums
+﻿namespace BooksApi.Core.Enums
 {
     public enum UserRole : byte
     {

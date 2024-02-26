@@ -1,6 +1,6 @@
 ﻿using BooksApi.Core.Shared;
 
-namespace BooksApi.Application.Services
+namespace BooksApi.Core.Abstractions.Services
 {
     public interface ITokenService
     {

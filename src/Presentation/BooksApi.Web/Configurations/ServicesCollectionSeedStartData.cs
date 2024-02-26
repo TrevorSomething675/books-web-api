@@ -1,13 +1,15 @@
 ﻿using BookApi.Infrastructure.Data;
 using BooksApi.DataBase.Entities;
-using BooksApi.Domain.Enums;
+using BooksApi.Core.Enums;
 
-namespace BooksApi.DataBase.Data
+namespace BooksApi.Web.Configurations
 {
-    internal sealed class TestData
+    public static class ServicesCollectionSeedStartData
     {
-        internal static void SeedData(MainContext context)
+        public static void SeedTestData(this IServiceCollection services)
         {
+            var context = services.BuildServiceProvider().GetRequiredService<MainContext>();
+
             context.Database.EnsureCreated();
 
             if (!context.Authors.Any())

@@ -10,6 +10,7 @@ namespace BooksApi.Web.Configurations
             var mapperConfig = new MapperConfiguration(config =>
             {
                 config.AddMaps(Assembly.GetAssembly(typeof(Infrastructure.AssemblyMarker)));
+                config.AddMaps(Assembly.GetAssembly(typeof(DataBase.AssemblyMarker)));
             });
             var mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);

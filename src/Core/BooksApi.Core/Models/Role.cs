@@ -1,6 +1,6 @@
-﻿using BooksApi.Domain.Enums;
+﻿using BooksApi.Core.Enums;
 
-namespace BooksApi.Application.Models
+namespace BooksApi.Core.Models
 {
     public class Role
     {

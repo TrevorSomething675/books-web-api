@@ -1,4 +1,4 @@
-﻿namespace BooksApi.Application.Models
+﻿namespace BooksApi.Core.Models
 {
     public class Book
     {

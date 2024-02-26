@@ -1,6 +1,6 @@
-﻿using BooksApi.Application.Models;
+﻿using BooksApi.Core.Models;
 
-namespace BooksApi.DataBase.Repositories.Abstractions
+namespace BooksApi.Core.Abstractions.Repositories
 {
     public interface IAuthorRepository
     {

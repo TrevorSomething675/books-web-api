@@ -1,7 +1,7 @@
-﻿using BooksApi.DataBase.Repositories.Abstractions;
+﻿using BooksApi.Core.Abstractions.Repositories;
+using BooksApi.Core.Abstractions.Services;
 using BooksApi.Infrastructure.Services;
 using BooksApi.DataBase.Repositories;
-using BooksApi.Application.Services;
 using BookApi.Infrastructure.Data;
 using BooksApi.Web.Configurations;
 using BooksApi.Core.OptionModels;
@@ -24,6 +24,8 @@ namespace BooksApi.Web
             services.AddControllers();
             services.AddDbContextFactory<MainContext>();
             services.AddMediatR(config => config.RegisterServicesFromAssemblies(Assembly.GetAssembly(typeof(Infrastructure.AssemblyMarker))));
+
+            services.SeedTestData();
 
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IBookRepository, BookRepository>();

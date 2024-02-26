@@ -1,6 +1,6 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using BooksApi.Core.Abstractions.Services;
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
-using BooksApi.Application.Services;
 using Microsoft.Extensions.Options;
 using BooksApi.Core.OptionModels;
 using System.Security.Claims;

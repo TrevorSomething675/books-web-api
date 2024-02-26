@@ -1,4 +1,6 @@
-﻿namespace BooksApi.Application.Models
+﻿using BooksApi.Core.Models;
+
+namespace BooksApi.Core.Models
 {
     public class Author
     {

@@ -1,4 +1,4 @@
-﻿using BooksApi.Domain.Enums;
+﻿using BooksApi.Core.Enums;
 
 namespace BooksApi.DataBase.Entities
 {

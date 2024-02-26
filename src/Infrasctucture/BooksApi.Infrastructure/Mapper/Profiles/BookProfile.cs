@@ -1,7 +1,7 @@
 ﻿using BooksApi.Infrastructure.Commands.BookFeatures.UpdateBook;
 using BooksApi.Infrastructure.Commands.BookFeatures.CreateBook;
-using BooksApi.Application.Models;
 using BooksApi.Core.Shared;
+using BooksApi.Core.Models;
 using AutoMapper;
 
 namespace BooksApi.Infrastructure.Mapper.Profiles

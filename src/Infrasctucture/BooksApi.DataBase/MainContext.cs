@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using BooksApi.DataBase.Entities;
 using BooksApi.Core.OptionModels;
-using BooksApi.DataBase.Data;
 
 namespace BookApi.Infrastructure.Data
 {
@@ -24,7 +23,6 @@ namespace BookApi.Infrastructure.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            TestData.SeedData(this);
             modelBuilder.ApplyConfiguration(new AuthorConfiguration());
             modelBuilder.ApplyConfiguration(new BookConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
