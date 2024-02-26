@@ -1,9 +1,9 @@
-﻿using BooksApi.Application.Repositories;
-using Ardalis.Result.FluentValidation;
+﻿using Ardalis.Result.FluentValidation;
 using BooksApi.Core.Shared;
 using FluentValidation;
 using Ardalis.Result;
 using MediatR;
+using BooksApi.DataBase.Repositories.Abstractions;
 
 namespace BooksApi.Infrastructure.Commands.AuthorFeatures.RemoveAuthor
 {

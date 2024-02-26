@@ -1,8 +1,8 @@
 ﻿using BooksApi.Infrastructure.Queries.BookFeatures.GetBookByIdQuery;
 using BooksApi.Infrastructure.Queries.BookFeatures.GetBooksQuery;
-using BooksApi.Infrastructure.Commands.BookFeature.CreateBook;
-using BooksApi.Infrastructure.Commands.BookFeature.UpdateBook;
-using BooksApi.Infrastructure.Commands.BookFeature.RemoveBook;
+using BooksApi.Infrastructure.Commands.BookFeatures.CreateBook;
+using BooksApi.Infrastructure.Commands.BookFeatures.UpdateBook;
+using BooksApi.Infrastructure.Commands.BookFeatures.RemoveBook;
 using System.ComponentModel.DataAnnotations;
 using Ardalis.Result.AspNetCore;
 using Microsoft.AspNetCore.Mvc;

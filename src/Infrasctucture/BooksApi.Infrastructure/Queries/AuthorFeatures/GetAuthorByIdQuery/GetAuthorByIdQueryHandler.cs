@@ -1,9 +1,9 @@
-﻿using BooksApi.Application.Repositories;
+﻿using BooksApi.DataBase.Repositories.Abstractions;
+using Ardalis.Result.FluentValidation;
 using BooksApi.Core.Shared;
 using FluentValidation;
 using Ardalis.Result;
 using MediatR;
-using Ardalis.Result.FluentValidation;
 using AutoMapper;
 
 namespace BooksApi.Infrastructure.Queries.AuthorFeatures.GetAuthorByIdQuery

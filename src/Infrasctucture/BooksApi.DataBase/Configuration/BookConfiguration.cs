@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using BooksApi.Domain.Entities;
+using BooksApi.Application.Models;
 
 namespace BooksApi.DataBase.Configuration
 {

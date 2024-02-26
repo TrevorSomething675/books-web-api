@@ -1,6 +1,6 @@
 ﻿using BooksApi.Infrastructure.Commands.AuthorFeatures.CreateAuthor;
 using BooksApi.Infrastructure.Commands.AuthorFeatures.UpdateAuthor;
-using BooksApi.Domain.Entities;
+using BooksApi.Application.Models;
 using BooksApi.Core.Shared;
 using AutoMapper;
 

@@ -1,6 +1,6 @@
-﻿using BooksApi.Application.Repositories;
+﻿using BooksApi.DataBase.Repositories.Abstractions;
 using Ardalis.Result.FluentValidation;
-using BooksApi.Domain.Entities;
+using BooksApi.Application.Models;
 using BooksApi.Core.Shared;
 using FluentValidation;
 using Ardalis.Result;

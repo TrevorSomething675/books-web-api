@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
@@ -21,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\BooksApi.Application\BooksApi.Application.csproj" />
     <ProjectReference Include="..\..\Core\BooksApi.Core\BooksApi.Core.csproj" />
     <ProjectReference Include="..\..\Core\BooksApi.Domain\BooksApi.Domain.csproj" />
   </ItemGroup>

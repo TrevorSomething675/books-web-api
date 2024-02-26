@@ -63,6 +63,22 @@ namespace BooksApi.DataBase.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("BooksApi.Domain.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<byte>("UserRole")
+                        .HasColumnType("smallint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+                });
+
             modelBuilder.Entity("BooksApi.Domain.Entities.Book", b =>
                 {
                     b.HasOne("BooksApi.Domain.Entities.Author", "Author")
