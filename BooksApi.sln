@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi.DataBase", "src\In
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9FD874E5-3A33-4BEF-BB99-D36ED913002D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksApi.Application", "BooksApi.Application\BooksApi.Application.csproj", "{611A305C-6FB3-4E7D-9B20-48018361C24C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{F1F1C97C-B6AD-4EB4-8CC3-1EAC1B4BB89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1F1C97C-B6AD-4EB4-8CC3-1EAC1B4BB89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1F1C97C-B6AD-4EB4-8CC3-1EAC1B4BB89C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{611A305C-6FB3-4E7D-9B20-48018361C24C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{611A305C-6FB3-4E7D-9B20-48018361C24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{611A305C-6FB3-4E7D-9B20-48018361C24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{611A305C-6FB3-4E7D-9B20-48018361C24C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{BD7BFC68-137E-4BF5-8CC5-3C60B71413B1} = {9FD874E5-3A33-4BEF-BB99-D36ED913002D}
 		{F1F1C97C-B6AD-4EB4-8CC3-1EAC1B4BB89C} = {9FD874E5-3A33-4BEF-BB99-D36ED913002D}
 		{9FD874E5-3A33-4BEF-BB99-D36ED913002D} = {46FD9449-FB49-44A9-ACA4-F1D2A70CAB04}
+		{611A305C-6FB3-4E7D-9B20-48018361C24C} = {9FD874E5-3A33-4BEF-BB99-D36ED913002D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {058D3DBC-3761-4E2B-BE4A-D53A29DDA386}
