@@ -53,7 +53,9 @@ namespace BooksApi.DataBase.Repositories
                 var bookEntityToUpdate = _mapper.Map<Book>(book);
                 var bookEntity = await context.Books.FirstOrDefaultAsync();
                 context.Entry(book).OriginalValues.SetValues(bookEntityToUpdate);
-                return book.Id;
+                var result = context.Books.Update(bookEntity);
+                context.SaveChanges();
+                return result.Entity.Id;
             }
         }
         public async Task<int> RemoveBookAsync(int id)
